@@ -34,5 +34,4 @@ describe('EmailDTO', () => {
     const request = generateRequest({ html: null, to: null });
     expect(await validate(request)).toMatchSnapshot();
   });
-  it('')
 });
