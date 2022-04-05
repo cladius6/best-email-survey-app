@@ -7,6 +7,7 @@ export class EmailController {
 
   @Post('/send')
   async send(@Body() body) {
-    return 'ok';
+    await this.emailService.sendEmail(body);
+    return body;
   }
 }
