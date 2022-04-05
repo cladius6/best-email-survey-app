@@ -18,6 +18,6 @@ export class EmailDTO {
   @IsString()
   text: string;
 
-  @IsOptional()
+  @IsString()
   html: string;
 }
