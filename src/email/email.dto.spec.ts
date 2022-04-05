@@ -3,8 +3,7 @@ import { EmailDTO } from './email.dto';
 
 function generateRequest(overrides: { to?: any; html?: any }) {
   const request = new EmailDTO();
-  request.to =
-    overrides.to === undefined ? 'cladius@gmail.com' : overrides.to;
+  request.to = overrides.to === undefined ? 'cladius@gmail.com' : overrides.to;
   request.html =
     overrides.html === undefined ? '<h1>Hello</h1>' : overrides.html;
   return request;
