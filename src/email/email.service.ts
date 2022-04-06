@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as nodemailer from 'nodemailer';
 import * as nodemailerSendgrid from 'nodemailer-sendgrid';
-import { EmailDTO } from './email.dto';
+import { SendEmailDto } from './dto/send_email.dto';
 
 @Injectable()
 export class EmailService {
@@ -15,7 +15,7 @@ export class EmailService {
     );
   }
 
-  async sendEmail(email: EmailDTO): Promise<void> {
+  async sendEmail(email: SendEmailDto): Promise<void> {
     return await this.transporter.sendMail(email);
   }
 }

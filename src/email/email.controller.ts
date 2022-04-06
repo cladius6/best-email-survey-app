@@ -8,7 +8,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { EmailService } from './email.service';
-import { EmailDTO } from './email.dto';
+import { SendEmailDto } from './dto/send_email.dto';
 
 @Controller('api/email')
 export class EmailController {
@@ -17,7 +17,7 @@ export class EmailController {
   @Post('/send')
   @UsePipes(new ValidationPipe({ transform: true }))
   @HttpCode(200)
-  async send(@Body() body: EmailDTO) {
+  async send_email(@Body() body: SendEmailDto) {
     try {
       await this.emailService.sendEmail(body);
       return 'Email sent successfully';
