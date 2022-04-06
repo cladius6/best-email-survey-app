@@ -5,11 +5,26 @@ class GetQuestionnaireRequest {
   @IsNotEmpty()
   id: number;
 }
+class Api {
+  responseStatus: number;
+  getQuestionnaireResponse(req: GetQuestionnaireRequest) {
+    return {
+      responseStatus: this.responseStatus,
+    };
+  }
+}
 
 function generateGetRequest(overrides: { id: any }) {
   const request = new GetQuestionnaireRequest();
   request.id = overrides.id === undefined ? 1 : overrides.id;
+  const api = new Api();
   return request;
+}
+function generateGetResponse(overrides: { responseStatus: any }) {
+  const response = new Api();
+  response.getQuestionnaireResponse =
+    overrides.responseStatus === undefined ? 200 : overrides.responseStatus;
+  return response;
 }
 
 describe('QuestionnaireDTO', () => {
