@@ -1,14 +1,14 @@
 import { validate } from 'class-validator';
-import { EmailDTO } from './email.dto';
+import { Send_emailDto } from './dto/send_email.dto';
 
 function generateRequest(overrides: { to?: any; html?: any }) {
-  const request = new EmailDTO();
+  const request = new Send_emailDto();
   request.to = overrides.to === undefined ? 'cladius@gmail.com' : overrides.to;
   request.html =
     overrides.html === undefined ? '<h1>Hello</h1>' : overrides.html;
   return request;
 }
-describe('EmailDTO', () => {
+describe('SendEmailDTO', () => {
   it('fails without to property', async () => {
     const request = generateRequest({ to: null });
     expect(await validate(request)).toMatchSnapshot();

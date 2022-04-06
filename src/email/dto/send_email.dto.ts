@@ -2,7 +2,7 @@ import { IsEmail, IsOptional, IsString } from 'class-validator';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class EmailDTO {
+export class SendEmailDto {
   @IsEmail()
   to: string;
 
